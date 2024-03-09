@@ -1,6 +1,13 @@
 {
     "login_button_text":"LOGIN",
     "sign_up_button_text":"SIGN UP",
-    "welcome_message_initial_part1":"Hello,Welcome back to",
-"welcome_message_initial_part2":"InkHaven"
+    "welcome_message_initial":"Hello,Welcome back to",
+
+"login_welcome_message_title":"Let's sign you in.",
+"login_welcome_message_subtitle":"welcome back, your\nbooks await",
+"login_email_field_label":"Email",
+    "login_password_field_label":"Password",
+    "login_forgot_password_label":"Forgot your password?",
+    "login_register_label_1":"Don't have an account? ",
+    "login_register_label_2":"Register"
 }

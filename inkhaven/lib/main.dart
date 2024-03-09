@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:inkhaven/core/app_theme/app_theme.dart';
-
+import 'package:inkhaven/feature/signup_authenticate_feature/presentation/business_logic_holder/login_cubit/cubit/login_cubit.dart';
+import 'package:inkhaven/route_navigator.dart';
+import 'injection_container.dart' as ic;
 import 'core/localization/app_localization.dart';
 import 'feature/signup_authenticate_feature/presentation/route/welcome_route.dart';
 
 void main() {
-  runApp(const InkHavenApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  ic.init();
+  runApp(MultiBlocProvider(
+    providers: [BlocProvider(create: (_) => ic.sl<LoginCubit>())],
+    child: const InkHavenApp(),
+  ));
 }
 
 class InkHavenApp extends StatelessWidget {
@@ -16,26 +24,23 @@ class InkHavenApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      onGenerateRoute: (settings) => RouteNavigator.generateRoute(settings),
       supportedLocales: const [
-        Locale('en'),
-        Locale('hr'),
+        Locale('en', 'US'),
+        Locale('hr', 'HR'),
       ],
       localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate
       ],
-      // Returns a locale which will be used by the app
       localeResolutionCallback: (locale, supportedLocales) {
-        // Check if the current device locale is supported
         for (var supportedLocale in supportedLocales) {
           if (supportedLocale.languageCode == locale?.languageCode &&
               supportedLocale.countryCode == locale?.countryCode) {
             return supportedLocale;
           }
         }
-        // If the locale of the device is not supported, use the first one
-        // from the list (English, in this case).
         return supportedLocales.first;
       },
       theme: AppTheme.appThemeLight(),

@@ -1,6 +1,13 @@
 {
     "login_button_text":"PRIJAVI SE",
     "sign_up_button_text":"REGISTRIRAJ SE",
-    "welcome_message_initial_part1":"Pozdrav, dobrodošao u ",
-    "welcome_message_initial_part2":"InkHaven"
+    "welcome_message_initial":"Pozdrav, dobrodošao u ",
+    
+    "login_welcome_message_title":"Prijavimo Vas.",
+    "login_welcome_message_subtitle":"dobrodošli natrag,\nVaše knjige Vas čekaju",
+    "login_email_field_label":"E-pošta",
+    "login_password_field_label":"Lozinka",
+    "login_forgot_password_label":"Zaboravljena lozinka?",
+    "login_register_label_1":"Nemate račun? ",
+    "login_register_label_2":"Registrirajte se"
 }
