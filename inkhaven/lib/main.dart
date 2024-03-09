@@ -5,21 +5,20 @@ import 'package:inkhaven/core/app_theme/app_theme.dart';
 import 'core/localization/app_localization.dart';
 import 'feature/signup_authenticate_feature/presentation/route/welcome_route.dart';
 
-void main(){
+void main() {
   runApp(const InkHavenApp());
 }
-
 
 class InkHavenApp extends StatelessWidget {
   const InkHavenApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       supportedLocales: const [
-        Locale('en', 'US'),
-        Locale('hr', 'HR'),
+        Locale('en'),
+        Locale('hr'),
       ],
       localizationsDelegates: const [
         AppLocalizations.delegate,
@@ -45,4 +44,3 @@ class InkHavenApp extends StatelessWidget {
     );
   }
 }
-

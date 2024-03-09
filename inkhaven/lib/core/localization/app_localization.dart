@@ -17,7 +17,7 @@ class AppLocalizations {
 
   Map<String, String> _localizedStrings = {};
 
-   static const LocalizationsDelegate<AppLocalizations> delegate =
+  static const LocalizationsDelegate<AppLocalizations> delegate =
       _AppLocalizationsDelegate();
 
   Future<bool> load() async {
@@ -38,6 +38,7 @@ class AppLocalizations {
     return _localizedStrings[key]!;
   }
 }
+
 // LocalizationsDelegate is a factory for a set of localized resources
 // In this case, the localized strings will be gotten in an AppLocalizations object
 class _AppLocalizationsDelegate
@@ -49,13 +50,13 @@ class _AppLocalizationsDelegate
   @override
   bool isSupported(Locale locale) {
     // Include all of your supported language codes here
-    return ['en', 'sk'].contains(locale.languageCode);
+    return ['en', 'hr'].contains(locale.languageCode);
   }
 
   @override
   Future<AppLocalizations> load(Locale locale) async {
     // AppLocalizations class is where the JSON loading actually runs
-    AppLocalizations localizations =  AppLocalizations(locale:locale);
+    AppLocalizations localizations = AppLocalizations(locale: locale);
     await localizations.load();
     return localizations;
   }
