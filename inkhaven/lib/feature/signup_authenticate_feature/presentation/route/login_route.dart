@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:inkhaven/core/widget/call_to_action_button.dart';
@@ -16,6 +13,7 @@ class LoginRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(),
       body: BlocBuilder<LoginCubit, LoginState>(builder: (_, state) {
         if (state is LoginInitial) {
@@ -38,41 +36,6 @@ class _LoginRouteBodyState extends State<_LoginRouteBody>
     with SingleTickerProviderStateMixin {
   final FocusNode _usernameFocusNode = FocusNode();
   final FocusNode _passwordFocusNode = FocusNode();
-  late final AnimationController _animationController;
-  final Tween<double> _sizeTween = Tween<double>(begin: 1, end: 0);
-  late final Animation<double> _animation;
-  @override
-  void initState() {
-    super.initState();
-
-    _animationController = AnimationController(
-        vsync: this,
-        duration: Duration(milliseconds: 250),
-        reverseDuration: Duration(milliseconds: 200));
-    _animation = _sizeTween.animate(_animationController);
-    _usernameFocusNode.addListener(() {
-      if (!_usernameFocusNode.hasFocus && !_passwordFocusNode.hasFocus) {
-        _animationController.reverse();
-      } else if (_usernameFocusNode.hasFocus) {
-        _animationController.forward();
-      }
-    });
-    _passwordFocusNode.addListener(() {
-      if (!_usernameFocusNode.hasFocus && !_passwordFocusNode.hasFocus) {
-        _animationController.reverse();
-      } else if (_passwordFocusNode.hasFocus) {
-        _animationController.forward();
-      }
-    });
-  }
-
-  @override
-  void dispose() {
-    _usernameFocusNode.dispose();
-    _passwordFocusNode.dispose();
-    _animationController.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -119,6 +82,19 @@ class _LoginRouteBodyState extends State<_LoginRouteBody>
                   decoration: InputDecoration(
                       label: Text(AppLocalizations.of(context)
                           .translate('login_password_field_label')))),
+              const SizedBox(height: 5),
+              Align(
+                alignment: Alignment.topRight,
+                child: GestureDetector(
+                  onTap: () =>
+                      Navigator.of(context).pushNamed('/ResetPasswordRoute'),
+                  child: Text(
+                    AppLocalizations.of(context)
+                        .translate('login_forgot_password_label'),
+                    style: Theme.of(context).textTheme.labelSmall,
+                  ),
+                ),
+              )
             ],
           ),
           Column(
@@ -133,7 +109,9 @@ class _LoginRouteBodyState extends State<_LoginRouteBody>
                     style: Theme.of(context).textTheme.labelSmall),
                 WidgetSpan(
                     child: GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(context).pushNamed('/SignUpRoute');
+                  },
                   child: Text(
                     AppLocalizations.of(context)
                         .translate('login_register_label_2'),
@@ -157,19 +135,13 @@ class _LoginRouteBodyState extends State<_LoginRouteBody>
               const SizedBox(
                 height: 20,
               ),
-              Align(
-                alignment: Alignment.centerRight,
-                child: SizeTransition(
-                  sizeFactor: _animationController,
-                  child: CallToActionButtonSecundary(
-                      onTap: () {},
-                      child: SvgPicture.asset(
-                        'assets/svg/google.svg',
-                        width: 28,
-                        height: 28,
-                      )),
-                ),
-              ),
+              CallToActionButtonSecundary(
+                  onTap: () {},
+                  child: SvgPicture.asset(
+                    'assets/svg/google.svg',
+                    width: 28,
+                    height: 28,
+                  )),
             ],
           )
         ],

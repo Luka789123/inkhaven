@@ -1,7 +1,7 @@
 {
     "login_button_text":"LOGIN",
     "sign_up_button_text":"SIGN UP",
-    "welcome_message_initial":"Hello,Welcome back to",
+    "welcome_message_initial":"Hello,Welcome back to ",
 
 "login_welcome_message_title":"Let's sign you in.",
 "login_welcome_message_subtitle":"welcome back, your\nbooks await",
@@ -9,5 +9,17 @@
     "login_password_field_label":"Password",
     "login_forgot_password_label":"Forgot your password?",
     "login_register_label_1":"Don't have an account? ",
-    "login_register_label_2":"Register"
+    "login_register_label_2":"Register",
+    "sign_up_title":"Let's sign you up",
+    "sign_up_subtitle":"Create account",
+    "sign_up_first_name":"First name",
+    "sign_up_last_name":"Last name",
+    "sign_up_email":"E-mail",
+    "sign_up_password":"Password",
+    "sign_up_repeat_password":"Repeat password",
+    "sign_up_field_required":"Required",
+    "sign_up_invalid_email":"Invalid e-mail",
+    "sign_up_password_doesnt_mach":"Passwords don't match",
+    "recover_password_route_title":"Recover password",
+    "revocer_password_route_subtitle":"Enter your username so we can send recover password link"
 }

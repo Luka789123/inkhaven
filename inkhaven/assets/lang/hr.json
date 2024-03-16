@@ -9,5 +9,18 @@
     "login_password_field_label":"Lozinka",
     "login_forgot_password_label":"Zaboravljena lozinka?",
     "login_register_label_1":"Nemate račun? ",
-    "login_register_label_2":"Registrirajte se"
+    "login_register_label_2":"Registrirajte se",
+    "sign_up_title":"Registrirajmo Vas",
+    "sign_up_subtitle":"Stvori račun",
+    "sign_up_first_name":"Ime",
+    "sign_up_last_name":"Prezime",
+    "sign_up_email":"E-pošta",
+    "sign_up_password":"Lozinka",
+    "sign_up_repeat_password":"Ponovi lozinku",
+    "sign_up_field_required":"Obavezno polje",
+    "sign_up_invalid_email":"Netočan format e-pošte",
+    "sign_up_password_doesnt_mach":"Unesene lozinke se ne podudaraju",
+    "recover_password_route_title":"Oporavi lozinku",
+    "revocer_password_route_subtitle":"Unesite svoje korisničko ime, tako da Vam možemo poslati link za oporavak lozinke"
+
 }

@@ -98,12 +98,10 @@ class _InkHavenInitialAppRouteState extends State<InkHavenInitialAppRoute>
                       position: _titlePositionAnimation,
                       child: Text.rich(
                         TextSpan(children: [
-                          //TODO internacionalizirati
                           TextSpan(
                               text: AppLocalizations.of(context)
                                   .translate('welcome_message_initial'),
                               style: Theme.of(context).textTheme.titleLarge),
-                          //TODO internacionalizirati
                           TextSpan(
                               text: 'InkHaven',
                               style: Theme.of(context)
@@ -133,10 +131,13 @@ class _InkHavenInitialAppRouteState extends State<InkHavenInitialAppRoute>
                                 child: Text(
                                   AppLocalizations.of(context)
                                       .translate('login_button_text'),
-                                  style: TextStyle(
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .onPrimary),
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium!
+                                      .copyWith(
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .onPrimary),
                                 )),
                           ),
                         ),
@@ -145,9 +146,14 @@ class _InkHavenInitialAppRouteState extends State<InkHavenInitialAppRoute>
                           child: SlideTransition(
                               position: _signUpButtonPositionAnimation,
                               child: CallToActionButtonSecundary(
-                                  onTap: () {},
-                                  child: Text(AppLocalizations.of(context)
-                                      .translate('sign_up_button_text')))),
+                                  onTap: () => Navigator.of(context)
+                                      .pushNamed('/SignUpRoute'),
+                                  child: Text(
+                                      AppLocalizations.of(context)
+                                          .translate('sign_up_button_text'),
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium))),
                         ),
                       ],
                     ),

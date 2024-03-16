@@ -12,19 +12,27 @@ class AppTheme {
             onBackground: Color.fromARGB(255, 217, 217, 217)),
         inputDecorationTheme: InputDecorationTheme(
             filled: true,
+            contentPadding:
+                const EdgeInsets.symmetric(vertical: 18, horizontal: 12),
             fillColor: const Color.fromRGBO(166, 166, 166, 0.37),
             floatingLabelBehavior: FloatingLabelBehavior.auto,
             labelStyle: GoogleFonts.robotoSerif(
-                color: const Color.fromARGB(255, 217, 217, 217), fontSize: 10),
+                color: const Color.fromARGB(255, 217, 217, 217), fontSize: 15),
             focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
                 borderSide: const BorderSide(
-                    color: const Color.fromRGBO(166, 166, 166, 0.37))),
+                    color: Color.fromRGBO(166, 166, 166, 0.37))),
             enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
                 borderSide: const BorderSide(
                     color: Color.fromRGBO(166, 166, 166, 0.37), width: 0)),
             errorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+              borderSide: const BorderSide(
+                color: Color.fromARGB(255, 178, 34, 34),
+              ),
+            ),
+            focusedErrorBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
                 borderSide:
                     const BorderSide(color: Color.fromARGB(255, 178, 34, 34)))),
@@ -63,10 +71,12 @@ class AppTheme {
             onBackground: Color.fromARGB(255, 29, 29, 29)),
         inputDecorationTheme: InputDecorationTheme(
             filled: true,
+            contentPadding:
+                const EdgeInsets.symmetric(vertical: 18, horizontal: 12),
             fillColor: const Color.fromRGBO(186, 166, 166, 0.37),
             floatingLabelBehavior: FloatingLabelBehavior.auto,
             labelStyle: GoogleFonts.robotoSerif(
-                color: Color.fromARGB(255, 91, 91, 91), fontSize: 10),
+                color: Color.fromARGB(255, 91, 91, 91), fontSize: 15),
             focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
                 borderSide: const BorderSide(
@@ -75,6 +85,10 @@ class AppTheme {
                 borderRadius: BorderRadius.circular(10),
                 borderSide: const BorderSide(
                     color: Color.fromRGBO(186, 166, 166, 0.37), width: 0)),
+            focusedErrorBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+                borderSide:
+                    const BorderSide(color: Color.fromARGB(255, 178, 34, 34))),
             errorBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
                 borderSide:
