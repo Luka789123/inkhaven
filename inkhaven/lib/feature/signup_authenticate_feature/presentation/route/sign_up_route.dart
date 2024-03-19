@@ -1,5 +1,3 @@
-import 'dart:async';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
@@ -39,8 +37,8 @@ class _SignUpRouteBody extends StatefulWidget {
 }
 
 class _SignUpRouteBodyState extends State<_SignUpRouteBody> {
-  bool _showPassword = false;
-  bool _showRepetedPassword = false;
+  bool _obscPassword = true;
+  bool _obscRepetedPassword = true;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -136,7 +134,7 @@ class _SignUpRouteBodyState extends State<_SignUpRouteBody> {
                                 }
                                 return null;
                               },
-                              obscureText: _showPassword,
+                              obscureText: _obscPassword,
                               decoration: InputDecoration(
                                 label: Text(
                                   AppLocalizations.of(context)
@@ -148,12 +146,14 @@ class _SignUpRouteBodyState extends State<_SignUpRouteBody> {
                                       onPressed: () {
                                         state(
                                           () {
-                                            _showPassword = !_showPassword;
+                                            _obscPassword = !_obscPassword;
                                           },
                                         );
                                       },
-                                      icon: const Icon(
-                                        FontAwesomeIcons.eyeSlash,
+                                      icon: Icon(
+                                        _obscPassword
+                                            ? FontAwesomeIcons.eye
+                                            : FontAwesomeIcons.eyeSlash,
                                         size: 15,
                                       )),
                                 ),
@@ -169,19 +169,21 @@ class _SignUpRouteBodyState extends State<_SignUpRouteBody> {
                                 }
                                 return null;
                               },
-                              obscureText: _showRepetedPassword,
+                              obscureText: _obscRepetedPassword,
                               decoration: InputDecoration(
                                 suffixIcon: Padding(
                                   padding: const EdgeInsets.only(right: 8.0),
                                   child: IconButton(
                                       onPressed: () {
                                         state(() {
-                                          _showRepetedPassword =
-                                              !_showRepetedPassword;
+                                          _obscRepetedPassword =
+                                              !_obscRepetedPassword;
                                         });
                                       },
-                                      icon: const Icon(
-                                        FontAwesomeIcons.eyeSlash,
+                                      icon: Icon(
+                                        _obscRepetedPassword
+                                            ? FontAwesomeIcons.eye
+                                            : FontAwesomeIcons.eyeSlash,
                                         size: 15,
                                       )),
                                 ),
