@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:inkhaven/feature/home_feature/presentation/route/landing_route.dart';
 import 'package:inkhaven/feature/signup_authenticate_feature/presentation/route/login_route.dart';
 import 'package:inkhaven/feature/signup_authenticate_feature/presentation/route/reset_password_route.dart';
 import 'package:inkhaven/feature/signup_authenticate_feature/presentation/route/sign_up_route.dart';
@@ -28,6 +29,9 @@ class RouteNavigator {
         return MaterialPageRoute(builder: (_) => const SignUpRoute());
       case '/ResetPasswordRoute':
         return MaterialPageRoute(builder: (_) => const ResetPasswordRoute());
+      case '/LandingRoute':
+        return MaterialPageRoute(builder: (_) => const LandingRoute());
+
       default:
         return _errorRoute();
     }

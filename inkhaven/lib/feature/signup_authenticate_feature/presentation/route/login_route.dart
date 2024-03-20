@@ -214,7 +214,7 @@ class _ButtonWidget extends StatelessWidget {
                 height: 8,
               ),
               CallToActionButton(
-                  onTap: () {},
+                  onTap: () => Navigator.of(context).pushNamed('/LandingRoute'),
                   child: Text(
                     AppLocalizations.of(context).translate('login_button_text'),
                     style: Theme.of(context).textTheme.bodyMedium!.copyWith(
